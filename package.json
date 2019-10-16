@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-api",
+  "version": "0.0.0",
+  "author": "Tamara Mack <likwidmack@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "core-js": "^3.3.2",
+    "debug": "^4.1.1",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "mongodb": "^3.3.2",
+    "morgan": "^1.9.1",
+    "node-sass": "^4.12.0",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "fetch": "^1.1.0",
+    "open": "^7.0.0",
+    "serve-favicon": "^2.5.0"
+  }
+}
