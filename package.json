@@ -1,12 +1,12 @@
 {
   "name": "portfolio-api",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Tamara Mack <likwidmack@gmail.com>",
   "private": true,
   "config": {
     "port": 3100,
-    "build": "8f7e3b9",
-    "timestamp": "2019-10-17T07:38:49.269Z"
+    "build": "cc5c784",
+    "timestamp": "2019-10-17T08:10:06.745Z"
   },
   "scripts": {
     "tagpackage": "bash ./bin/sh/tagpackage.sh",
