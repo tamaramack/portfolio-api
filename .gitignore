@@ -74,6 +74,7 @@ fabric.properties
 *.css.map
 *.sass.map
 *.scss.map
+public/**/*.css
 
 ### Vue template
 # gitignore template for Vue.js projects
