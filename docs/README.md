@@ -1,8 +1,8 @@
-# T Mack's Portfolio API *(0.0.1)*
+# T Mack's Portfolio API *(0.0.2)*
 *This project is a **Work in Progress***
 
-**Last Update: 10/17/2019, 01:14:14**
+**Last Update: 10/17/2019, 01:31:02**
 
-**Current Tag: v0.0.1-1-gbda8b8c**
+**Current Tag: v0.0.1-2-gbf9b091**
 
 ## [tamaramack/portfolio-api](https://github.com/tamaramack/portfolio-api)
