@@ -1,0 +1,6 @@
+{
+  "verbose": true,
+  "ignore": ["test/*", "docs/*", "public/*", "views/*"],
+  "delay": 200,
+  "ext": "js"
+}

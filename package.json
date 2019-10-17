@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 3100,
-    "build": "v0.0.2-2-g628250b",
-    "timestamp": "2019-10-17T09:17:17.377Z"
+    "build": "v0.0.2-3-ge76f1b8",
+    "timestamp": "2019-10-17T23:52:41.017Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -14,6 +14,7 @@
     "preinstall": "bash ./bin/sh/preinstall.sh",
     "postinstall": "bash ./bin/sh/postinstall.sh",
     "postversion": "bash ./bin/sh/postversion.sh",
+    "local": "nodemon ./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -36,6 +37,7 @@
     "eslint": "^6.5.1",
     "fetch": "^1.1.0",
     "husky": "^3.0.9",
+    "nodemon": "^1.19.4",
     "open": "^7.0.0",
     "serve-favicon": "^2.5.0"
   },
