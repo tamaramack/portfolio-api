@@ -3,7 +3,17 @@
   "version": "0.0.0",
   "author": "Tamara Mack <likwidmack@gmail.com>",
   "private": true,
+  "config": {
+    "port": 3100,
+    "build": "8f7e3b9",
+    "timestamp": "2019-10-17T07:38:49.269Z"
+  },
   "scripts": {
+    "tagpackage": "bash ./bin/sh/tagpackage.sh",
+    "preinstall": "bash ./bin/sh/preinstall.sh",
+    "install": "node-gyp rebuild",
+    "postinstall": "bash ./bin/sh/postinstall.sh",
+    "postversion": "bash ./bin/sh/postversion.sh",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -25,7 +35,14 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
     "fetch": "^1.1.0",
+    "husky": "^3.0.9",
     "open": "^7.0.0",
     "serve-favicon": "^2.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tagpackage",
+      "post-merge": "npm run tagpackage"
+    }
   }
 }
