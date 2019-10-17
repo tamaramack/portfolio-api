@@ -12,9 +12,9 @@ const { exec } = require('child_process');
   const writeFile = util.promisify(fs.writeFile);
 
   const encoding = 'utf-8';
-  const dataDir = path.resolve(__dirname, '../docs/tmpl');
-  const destinationDir = path.resolve(__dirname, '../docs');
-  const pkgFile = path.resolve(__dirname, '../package.json');
+  const dataDir = path.resolve(__dirname, '../../docs/tmpl');
+  const destinationDir = path.resolve(__dirname, '../../docs');
+  const pkgFile = path.resolve(__dirname, '../../package.json');
 
   const pkg = JSON.parse(fs.readFileSync(pkgFile, encoding));
 

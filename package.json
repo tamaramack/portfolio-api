@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 3100,
-    "build": "v0.0.1-0-g3b89bbe",
-    "timestamp": "2019-10-17T08:10:12.782Z"
+    "build": "v0.0.1-1-gbda8b8c",
+    "timestamp": "2019-10-17T08:14:14.688Z"
   },
   "scripts": {
     "tagpackage": "bash ./bin/sh/tagpackage.sh",
