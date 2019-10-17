@@ -2,4 +2,4 @@
 
 npm audit fix
 # npm run build:raw
-npm run build all
+# npm run build all

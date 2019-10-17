@@ -5,13 +5,13 @@
   "private": true,
   "config": {
     "port": 3100,
-    "build": "v0.0.2-0-gf44fb3f",
-    "timestamp": "2019-10-17T08:31:08.181Z"
+    "build": "v0.0.2-1-gc99299b",
+    "timestamp": "2019-10-17T08:53:41.936Z"
   },
   "scripts": {
+    "clean": "bash ./bin/sh/clean.sh",
     "tagpackage": "bash ./bin/sh/tagpackage.sh",
     "preinstall": "bash ./bin/sh/preinstall.sh",
-    "install": "node-gyp rebuild",
     "postinstall": "bash ./bin/sh/postinstall.sh",
     "postversion": "bash ./bin/sh/postversion.sh",
     "start": "node ./bin/www"
@@ -20,7 +20,7 @@
     "cookie-parser": "^1.4.4",
     "core-js": "^3.3.2",
     "debug": "^4.1.1",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "mongodb": "^3.3.2",
