@@ -4,9 +4,9 @@
   "author": "Tamara Mack <likwidmack@gmail.com>",
   "private": true,
   "config": {
-    "port": 3100,
-    "build": "v0.0.2-3-ge76f1b8",
-    "timestamp": "2019-10-17T23:52:41.017Z"
+    "port": 9080,
+    "build": "v0.0.2-4-gb349816",
+    "timestamp": "2019-10-22T23:28:57.216Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -14,7 +14,7 @@
     "preinstall": "bash ./bin/sh/preinstall.sh",
     "postinstall": "bash ./bin/sh/postinstall.sh",
     "postversion": "bash ./bin/sh/postversion.sh",
-    "local": "nodemon ./bin/www",
+    "local": "nodemon ./bin/www local",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "mongodb": "^3.3.2",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "node-sass": "^4.12.0",
     "node-sass-middleware": "^0.11.0",

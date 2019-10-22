@@ -8,20 +8,24 @@ var pkg = require('../package.json');
 var app = require('../server');
 var debug = require('debug')('portfolio-api:server');
 var http = require('http');
+var https = require('https');
 var opn = require('open');
+var console = require('./js/logger')();
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || pkg.config.port);
+const isLocal = (process.argv.length > 2 && process.argv[2]) === 'local';
+const environ = (process.env.NODE_ENV || 'production');
+const port = normalizePort(process.env.PORT || pkg.config.port) || 8080;
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -36,7 +40,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -60,9 +64,9 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  const bind = typeof port === 'string'
+      ? 'Pipe ' + port
+      : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -84,10 +88,11 @@ function onError(error) {
  */
 
 async function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  await opn(`http://localhost:${port}`);
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+      ? 'pipe ' + addr
+      : 'port ' + addr.port;
+  if (isLocal) await opn(`http://localhost:${ port }`);
+  console.log(`Server Listening on ${bind}`, addr);
   debug('Listening on ' + bind);
 }
