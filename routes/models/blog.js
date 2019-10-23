@@ -8,7 +8,7 @@ module.exports = ((mongoose) => {
     text: {type: String}
   }, {
     timestamps: {
-      createAt: 'timestamp',
+      createdAt: 'timestamp',
       updatedAt: 'updated'
     }
   });

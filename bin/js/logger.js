@@ -2,29 +2,36 @@
  * logger js file created by Tamara G. Mack on 21-Oct-19 for portfolio-api
  */
 var fs = require('fs');
+var path = require('path');
+var util = require('util');
 
-const outFile = './bin/.store/stdout.log';
-const errFile = './bin/.store/stderr.log';
-const streamOpt = { emitClose: true };
-const openFileCb = (file) => (err, fd) => {
-  if (err) {
-    if (err.code === 'EEXIST') {
-      console.error(`${ file } already exists`);
-      return;
-    }
+const {
+  createWriteStream,
+  WriteStream,
+  openSync,
+  closeSync,
+} = fs;
+const {promisify} = util;
 
-    throw err;
+const outFile = path.join(__dirname, '../.store/stdout.log');
+const errFile = path.join(__dirname, '../.store/stderr.log');
+const streamOpt = {emitClose: true};
+try {
+  let openOut = openSync(outFile, 'wx');
+  let openErr = openSync(errFile, 'wx');
+  closeSync(openOut);
+  closeSync(openErr);
+} catch (err) {
+  if (err.code === 'EEXIST') {
+    console.error('File already exists');
   }
-  fs.close(fd, () => {});
-};
+  console.error(err);
+}
 
-fs.open(outFile, 'wx', openFileCb(outFile));
-fs.open(errFile, 'wx', openFileCb(errFile));
-
-module.exports = (() => {
+module.exports = () => {
   const {Console} = require('console');
-  const stdout = fs.createWriteStream(outFile, streamOpt);
-  const stderr = fs.createWriteStream(errFile, streamOpt);
+  const stdout = createWriteStream(outFile, streamOpt);
+  const stderr = createWriteStream(errFile, streamOpt);
   const inspectOptions = {
     colors: true,
     depth: 3,
@@ -37,5 +44,7 @@ module.exports = (() => {
     stderr,
     inspectOptions,
   };
+
+  // app.use(logger('combined', { stream: stdout }));
   return new Console(options);
-});
+};

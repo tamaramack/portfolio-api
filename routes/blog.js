@@ -6,9 +6,9 @@ var path = require('path');
 
 const router = express.Router();
 module.exports = ((mongoose) => {
-  var Blog = require('./models/blog')(mongoose);
+  const Blog = require('./models/blog')(mongoose);
 
-  router.get('/generateSampleData', (req, res) => {
+  router.get('/blog/generateSampleData', (req, res) => {
     let data = require(path.join(__dirname, '../bin/data/blog.json'));
     Blog.create(data, (err, list) => {
       if (err) res.status(500).send(err);
@@ -16,7 +16,7 @@ module.exports = ((mongoose) => {
     });
   });
 
-  router.route('/').get((req, res) => {
+  router.route('/blog/').get((req, res) => {
     Blog.find({}, (err, list) => {
       res.json(list);
     });
@@ -33,7 +33,7 @@ module.exports = ((mongoose) => {
     });
   });
 
-  router.route('/:id').get((req, res) => {
+  router.route('/blog/:id').get((req, res) => {
     const {id} = req.params;
     Blog.findById(id, (err, blog) => {
       res.json(blog);

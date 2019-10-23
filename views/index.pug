@@ -1,5 +1,20 @@
 extends layout
 
+block header
+  .top-bar
+    .top-bar-left
+      ul.dropdown.menu(data-dropdown-menu)
+        li.menu-title
+          h1= title
+    .top-bar-right
+      p Welcome to #{title} #{clientIP}
+
 block content
-  h1= title
-  p Welcome to #{title}
+  .callout
+    #app
+      h2 {{greet}}
+block footer
+  div: h4 Footer
+
+block scripts
+  script(type='module', src='/javascripts/index.js')

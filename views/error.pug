@@ -1,6 +1,13 @@
 extends layout
 
+block header
+  .top-bar
+    .top-bar-left
+      ul.dropdown.menu(data-dropdown-menu)
+        li.menu-title
+          h1= message
+    .top-bar-right
+
 block content
-  h1= message
   h2= error.status
   pre #{error.stack}
