@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.2-7-gd08f5bb",
-    "timestamp": "2019-10-23T22:56:12.439Z"
+    "build": "v0.0.3-0-g45f44d9",
+    "timestamp": "2019-10-23T22:56:17.432Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
