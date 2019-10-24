@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.4-2-gd5d23fc",
-    "timestamp": "2019-10-24T19:02:09.727Z"
+    "build": "v0.0.4-3-g3ad25ce",
+    "timestamp": "2019-10-24T20:30:29.636Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -49,7 +49,7 @@
     }
   },
   "engines": {
-    "npm": ">=6.11.0",
-    "node": ">=12.10.0"
+    "npm": "6.x",
+    "node": "12.x"
   }
 }
