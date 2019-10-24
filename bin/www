@@ -18,8 +18,8 @@ var console = require('./js/logger')();
 
 const isLocal = (process.argv.length > 2 && process.argv[2]) === 'local';
 const environ = (process.env.NODE_ENV || 'production');
-const port = normalizePort(process.env.PORT || pkg.config.port) || 8080;
-// app.set('port', port);
+const port = normalizePort(process.env.PORT || pkg.config.port);
+app.set('port', port);
 
 /**
  * Create HTTP server.
