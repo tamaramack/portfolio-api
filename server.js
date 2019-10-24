@@ -12,7 +12,7 @@ const publicPath = path.join(__dirname, 'public');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.set('trust proxy',  ['loopback', 'linklocal']);
+// app.set('trust proxy',  ['loopback', 'linklocal']);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,7 +25,6 @@ app.use(sassMiddleware({
   sourceMap: true,
 }));
 app.use(express.static(publicPath));
-app.locals.clientIP = '';
 
 // Add API routes
 app = implementAPIRoutes(app, logger);
