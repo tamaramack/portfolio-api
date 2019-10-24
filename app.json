@@ -1,0 +1,30 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "description": "",
+  "env": {
+    "MONGO_MLAB_URI": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "portfolio-api",
+  "scripts": {
+    "postdeploy": "bin/js/heroku-setup",
+    "pr-predestroy": "bin/js/heroku-teardown"
+  },
+  "stack": "heroku-18"
+}
