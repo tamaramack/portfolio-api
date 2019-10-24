@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.4-0-g943dd6f",
-    "timestamp": "2019-10-24T18:39:27.445Z"
+    "build": "v0.0.4-1-gfa6ed31",
+    "timestamp": "2019-10-24T18:49:03.193Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -47,5 +47,9 @@
       "pre-commit": "npm run tagpackage",
       "post-merge": "npm run tagpackage"
     }
+  },
+  "engines": {
+    "npm": ">=6.11.0",
+    "node": ">=12.10.0"
   }
 }
