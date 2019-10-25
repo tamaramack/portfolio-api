@@ -2,10 +2,10 @@ var express = require('express');
 var mongoose = require('mongoose');
 var usersRouter = require('./users');
 var blogRouter = require('./blog');
+var report = global.TMACKAPI.report;
 
-module.exports = ((app, logger) => {
+module.exports = (app => {
   var ipAddr = require('./routines/caller-ip');
-  var console = require('../bin/js/logger')();
 
   mongoose.set('debug', (collectionName, methodName, ...args) => {
     console.log(`${ collectionName }::${ methodName }`, ...args);
@@ -13,25 +13,27 @@ module.exports = ((app, logger) => {
 
   const router = express.Router();
   const db = mongoose.connect(`${ process.env.MONGO_MLAB_URI }`, {useNewUrlParser: true});
+  report.log('Mongoose connection ' + JSON.stringify(db));
 
 // middleware that is specific to this router
   router.use((req, res, next) => {
-    console.log('Start Time: ', Date.now());
-    if (!Object.keys(res.locals).length) {
-      const {ip, hostname} = req;
-      Object.assign(res.locals, {
+    report.log('Start Time: ', Date.now());
+    const {ip, hostname} = req;
+    if (!res.locals.data) {
+      res.locals.data = encodeURI(JSON.stringify({
         ip,
         hostname,
-        clientIP: ipAddr(req, console),
-      });
+        clientIP: ipAddr(req, report),
+      }));
     }
     next();
   });
 
   /* GET home page. */
   router.get('/', function(req, res, next) {
-    console.log('Response Locals', JSON.stringify(res.locals));
-    res.render('index', {title: 'TMack\'s Portfolio API'});
+    report.log('Response Locals', JSON.stringify(res.locals));
+    res.locals.title = "TMack's Portfolio API";
+    res.render('index');
   });
 
   router.use('/api', [usersRouter, blogRouter(mongoose)]);

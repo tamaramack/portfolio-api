@@ -8,6 +8,7 @@ var implementAPIRoutes = require('./routes');
 
 let app = express();
 const publicPath = path.join(__dirname, 'public');
+const {report} = global.TMACKAPI;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -15,6 +16,9 @@ app.set('view engine', 'pug');
 // app.set('trust proxy',  ['loopback', 'linklocal']);
 
 app.use(logger('dev'));
+app.use(logger('combined', {
+  stream: report._writeOut
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
@@ -27,7 +31,7 @@ app.use(sassMiddleware({
 app.use(express.static(publicPath));
 
 // Add API routes
-app = implementAPIRoutes(app, logger);
+app = implementAPIRoutes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

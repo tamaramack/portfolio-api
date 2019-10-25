@@ -9,8 +9,12 @@ html.no-js(lang="en")
       href='https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css',
       crossorigin='anonymous')/
     link(rel='stylesheet', href='/stylesheets/style.css')/
+    block headScripts
+      script.
+        window.TMACKAPI = {};
+        window.TMACKAPI.data = JSON.parse(decodeURI('#{data}'));
   body
-    #body.grid-y.medium-grid-frame
+    #app.grid-y.medium-grid-frame
       #header.cell.shrink.medium-cell-block-container
         block header
       #content.cell.medium-auto.medium-cell-block-container

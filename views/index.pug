@@ -5,14 +5,15 @@ block header
     .top-bar-left
       ul.dropdown.menu(data-dropdown-menu)
         li.menu-title
-          h1= title
+          h4 #{title}
     .top-bar-right
-      p Welcome to #{title} #{clientIP}
+      span.label(title="IP Address") {{headData.clientIP}}
+      span.label(title="HostName") {{headData.hostname}}
 
 block content
-  .callout
-    #app
-      h2 {{greet}}
+  div
+    h2 {{greet}}
+
 block footer
   div: h4 Footer
 
