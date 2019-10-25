@@ -5,26 +5,45 @@ var express = require('express');
 var path = require('path');
 
 const router = express.Router();
+
+class BlogModel {
+  constructor({ _id, id, title, text, timestamp, updated} = {}) {
+    id = id || _id;
+    Object.assign(this, {
+      _id,
+      id,
+      title,
+      text,
+      timestamp,
+      updated
+    });
+  }
+}
+
 module.exports = ((mongoose) => {
   const Blog = require('./models/blog')(mongoose);
 
   router.get('/blog/generateSampleData', (req, res) => {
     let data = require(path.join(__dirname, '../bin/data/blog.json'));
     Blog.create(data, (err, list) => {
-      if (err) res.status(500).send(err);
-      else res.status(201).json(list);
+      if (err){
+        res.status(500).send(err);
+      } else {
+        list = list.map(v => new BlogModel(v));
+        res.status(201).json(list);
+      }
     });
   });
 
   router.route('/blog/').get((req, res) => {
     Blog.find({}, (err, list) => {
-      res.json(list);
+      res.json(list.map(v => new BlogModel(v)));
     });
   }).post((req, res) => {
     const blog = new Blog(req.body);
     blog.save((err) => {
       if (err) res.status(500).send(err);
-      else res.status(201).json(blog);
+      else res.status(201).json(new BlogModel(blog));
     });
   }).delete((req, res) => {
     Blog.remove({}, (err, result) => {
@@ -36,7 +55,7 @@ module.exports = ((mongoose) => {
   router.route('/blog/:id').get((req, res) => {
     const {id} = req.params;
     Blog.findById(id, (err, blog) => {
-      res.json(blog);
+      res.json(new BlogModel(blog));
     });
   }).put((req, res) => {
     const {params: {id}, body: {title, text}} = req;
@@ -45,7 +64,7 @@ module.exports = ((mongoose) => {
       blog.text = text;
       blog.save((err) => {
         if (err) res.status(500).send(err);
-        res.status(201).json(blog);
+        res.status(201).json(new BlogModel(blog));
       });
     });
   }).delete((req, res) => {
