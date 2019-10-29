@@ -14,7 +14,7 @@ const {report} = global.TMACKAPI;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-// app.set('trust proxy',  ['loopback', 'linklocal']);
+app.set('trust proxy',  ['loopback', 'linklocal']);
 
 app.use(logger('dev'));
 app.use(logger('combined', {

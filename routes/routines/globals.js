@@ -28,10 +28,10 @@ global.TMACKAPI = (() => {
 
   return obj;
 
-  function addProperty(key, value) {
+  function addProperty(key, value, enumerable = true) {
     Object.defineProperty(this, key, {
       value,
-      enumerable: true,
+      enumerable,
     });
   }
 })();
