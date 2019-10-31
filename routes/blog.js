@@ -4,6 +4,7 @@
 var express = require('express');
 var path = require('path');
 
+const {report} = global.TMACKAPI;
 const router = express.Router();
 
 class BlogModel {

@@ -1,11 +1,11 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var ipAddr = require('./routines/caller-ip');
 var usersRouter = require('./users');
 var blogRouter = require('./blog');
-var report = global.TMACKAPI.report;
 
 module.exports = (app => {
-  var ipAddr = require('./routines/caller-ip');
+  const {report} = global.TMACKAPI;
 
   mongoose.set('debug', (collectionName, methodName, ...args) => {
     console.log(`${ collectionName }::${ methodName }`, ...args);
@@ -17,7 +17,7 @@ module.exports = (app => {
 
 // middleware that is specific to this router
   router.use((req, res, next) => {
-    report.log('Start Time: ', Date.now());
+    report.log('Start Base Router');
     const {ip, hostname} = req;
     if (!res.locals.data) {
       res.locals.data = encodeURI(JSON.stringify({
