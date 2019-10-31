@@ -1,12 +1,12 @@
 {
   "name": "portfolio-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Tamara Mack <likwidmack@gmail.com>",
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.4-12-g36c7b99",
-    "timestamp": "2019-10-29T23:14:41.339Z"
+    "build": "v0.0.4-13-g6e3df97",
+    "timestamp": "2019-10-31T01:46:42.151Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
