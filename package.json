@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.4-12-g36c7b99",
-    "timestamp": "2019-10-29T23:14:41.339Z"
+    "build": "v0.0.4-13-g6e3df97",
+    "timestamp": "2019-11-25T06:04:19.037Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -52,5 +52,9 @@
   "engines": {
     "npm": "6.x",
     "node": "12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamaramack/portfolio-api.git"
   }
 }
