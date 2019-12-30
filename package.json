@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.4-18-g37a29ce",
-    "timestamp": "2019-12-30T18:44:57.873Z"
+    "build": "v0.0.4-19-g5344ee5",
+    "timestamp": "2019-12-30T18:51:11.553Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -18,6 +18,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "acorn": "^7.1.0",
     "cookie-parser": "^1.4.4",
     "core-js": "^3.3.5",
     "cors": "^2.8.5",
@@ -43,6 +44,9 @@
     "husky": "^3.0.9",
     "nodemon": "^1.19.4",
     "serve-favicon": "^2.5.0"
+  },
+  "peerDependencies": {
+    "acorn-jsx": ">=5"
   },
   "husky": {
     "hooks": {
