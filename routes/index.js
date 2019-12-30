@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var ipAddr = require('./routines/caller-ip');
 var usersRouter = require('./users');
 var blogRouter = require('./blog');
+var randomRouter = require('./random');
 
 module.exports = (app => {
   const {report} = global.TMACKAPI;
@@ -36,7 +37,7 @@ module.exports = (app => {
     res.render('index');
   });
 
-  router.use('/api', [usersRouter, blogRouter(mongoose)]);
+  router.use('/api', [usersRouter, blogRouter(mongoose), randomRouter]);
 
   app.use('/', router);
   return app;
