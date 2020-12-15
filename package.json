@@ -5,8 +5,8 @@
   "private": true,
   "config": {
     "port": 9080,
-    "build": "v0.0.4-20-gce60fb3",
-    "timestamp": "2019-12-30T18:52:53.588Z"
+    "build": "v0.0.4-21-ga4755eb",
+    "timestamp": "2019-12-30T22:57:28.376Z"
   },
   "scripts": {
     "clean": "bash ./bin/sh/clean.sh",
@@ -19,30 +19,30 @@
   },
   "dependencies": {
     "acorn": "^7.1.0",
-    "cookie-parser": "^1.4.4",
-    "core-js": "^3.3.5",
+    "cookie-parser": "^1.4.5",
+    "core-js": "^3.8.1",
     "cors": "^2.8.5",
-    "debug": "^4.1.1",
+    "debug": "^4.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
-    "http-errors": "^1.7.3",
-    "mongodb": "^3.3.2",
-    "mongoose": "^5.7.7",
-    "morgan": "^1.9.1",
-    "node-sass": "^4.13.0",
+    "http-errors": "^1.8.0",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0",
+    "node-sass": "^5.0.0",
     "node-sass-middleware": "^0.11.0",
-    "open": "^7.0.0",
-    "pug": "^2.0.4",
-    "rword": "^3.1.1"
+    "open": "^7.3.0",
+    "pug": "^3.0.0",
+    "rword": "^3.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
-    "husky": "^3.0.9",
-    "nodemon": "^1.19.4",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.15.0",
+    "husky": "^4.3.6",
+    "nodemon": "^2.0.6",
     "serve-favicon": "^2.5.0"
   },
   "peerDependencies": {
