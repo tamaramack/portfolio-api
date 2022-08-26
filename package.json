@@ -28,7 +28,7 @@
     "fetch": "^1.1.0",
     "http-errors": "^2.0.0",
     "mongodb": "^4.3.0",
-    "mongoose": "^6.1.6",
+    "mongoose": "^6.4.6",
     "morgan": "^1.10.0",
     "node-sass": "^7.0.1",
     "node-sass-middleware": "^0.11.0",
